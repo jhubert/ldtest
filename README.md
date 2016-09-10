@@ -1,24 +1,30 @@
-# README
+## Testing
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+From rails console:
 
-Things you may want to cover:
+```ruby
+Rails.configuration.features_client.variation(FLAG, { key: 'sdfasdfasfd' }, false)
+```
 
-* Ruby version
+change value in launch darkly
 
-* System dependencies
+```ruby
+Rails.configuration.features_client.variation(FLAG, { key: 'sdfasdfasfd' }, false)
+```
 
-* Configuration
+Instantiate a new client
 
-* Database creation
+```ruby
+client = LaunchDarkly::LDClient.new(
+	ENV['LAUNCHDARKLY_AUTH_KEY'],
+	config
+)
 
-* Database initialization
+client.variation(FLAG, { key: 'sdfasdfasfd' }, false)
+```
 
-* How to run the test suite
+change value in launch darkly
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```ruby
+client.variation(FLAG, { key: 'sdfasdfasfd' }, false)
+```
